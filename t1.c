@@ -66,55 +66,30 @@ double cosseno (double angulo) {
     return cosseno_angulo;
 }
 
-void tabela () {
-    int cont = 10;
-    printf("\n------------------------------------\n");
-    printf("| Angulo |    Seno    |  Cosseno   |\n");
-    printf("|   5    | %.7lf | %.7lf  |\n", seno(5), cosseno(5));
-    while (cont <= 30) {
-        double seno_cont = seno(cont);
-        double cosseno_cont = cosseno(cont);
-        if (seno_cont >= 0 && cosseno_cont >= 0 ) {
-            printf("|   %i   | %.7lf  | %.7lf  |\n", cont, seno_cont, cosseno_cont);
-        }
-        else if (seno_cont >= 0) {
-            printf("|   %i   | %.7lf  | %.7lf |\n", cont, seno(cont), cosseno(cont));
-        }
-        else if (cosseno_cont >= 0) {
-            printf("|   %i   | %.7lf | %.7lf  |\n", cont, seno(cont), cosseno(cont));
-        }
-        else {
-            printf("|   %i   | %.7lf | %.7lf |\n", cont, seno(cont), cosseno(cont));
-        }
-        cont += 5;
-    }
-    printf("------------------------------------\n");
-}
-
 double conversor (int valor) {
-    double valor_convertido_em_graus = (valor/180)*pi;
+    double valor_convertido_em_graus = ((double)valor/180)*pi;
     return valor_convertido_em_graus;
 }
 
-void tabela2 () {
-    //head
+void tabela () {
+    //cabeçalho da tabela
     printf("\u250C\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u252C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510\n");
     printf("\u2502angulo\u2502cosseno\u2502seno   \u2502cosseno\u2502seno   \u2502cosseno\u2502seno   \u2502cosseno\u2502seno   \u2502cosseno\u2502seno   \u2502\n");
     printf("\u251C\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n");
 
+    //meio da tabela
     for (int i = 0; i <= 349; i +=5) {
         printf("\u2502%6i\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502\n", i, cosseno(conversor(i)), seno(conversor(i)), cosseno(conversor(i+1)), seno(conversor(i+1)), cosseno(conversor(i+2)), seno(conversor(i+2)), cosseno(conversor(i+3)), seno(conversor(i+3)), cosseno(conversor(i+4)), seno(conversor(i+4)));
         printf("\u251C\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u253C\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524\n");
     }
 
-    //bottom
-    printf("\u2502355     \u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502\n", cosseno(conversor(355)), seno(conversor(355)), cosseno(conversor(356)), seno(conversor(356)), cosseno(conversor(357)), seno(conversor(357)), cosseno(conversor(358)), seno(conversor(358)), cosseno(conversor(359)), seno(conversor(359)));
+    //inferior da tabela
+    printf("\u2502355   \u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502%7.4f\u2502\n", cosseno(conversor(355)), seno(conversor(355)), cosseno(conversor(356)), seno(conversor(356)), cosseno(conversor(357)), seno(conversor(357)), cosseno(conversor(358)), seno(conversor(358)), cosseno(conversor(359)), seno(conversor(359)));
     printf("\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2534\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518\n");
 
 }
 
 int main (void) {
-    tabela2();
+    tabela();
 }
 
-//conferir se os quadrante pro cosseno ta funcionando em varios valores (maybe scanf)
